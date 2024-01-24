@@ -13,12 +13,12 @@ QA Testing - NodeJS Test Runner
 
 # Pre-requisites and Installation
 
- - NodeJS v16.17.0 or superior (Use the [Node Version Manager](https://github.com/nvm-sh/nvm) to install the correct version)
+ - NodeJS v16.17.0 until v18.x.x (Use the [Node Version Manager](https://github.com/nvm-sh/nvm) to install the correct version)
  - Clone this repository.
  - Open the bash terminal in the repository, change the directory path to `/BackEnd` and run the command `npm i` or `npm install` to install all BackEnd packages.
  - Change the directory path to `/FrontEnd` and run the command `yarn` or `yarn install` to install all FrontEnd packages.
  - After all is installed, start the local server running the command `npm run server` in the path `/BackEnd`.
- - Then, start the Web Application running the command `yarn serve` in the path `/FrontEnd`.
+ - Then, start the Web Application running the command `yarn dev` in the path `/FrontEnd`.
 
 # How it Works
 

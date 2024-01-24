@@ -40,7 +40,7 @@ app.get("/all", async (req, res) => {
 
         return resp;
     } catch (error) {
-        resp = res.status(500).send("Error. Please try again.");
+        resp = res.status(500).send("<h3>Error. Please try again.</h3>");
 
         return resp;
     }
@@ -51,11 +51,11 @@ app.get("/:shortUrlId", async (req, res) => {
 
     try {
         const url = await urlDb.find(req.params.shortUrlId);
-        resp = !url ? res.status(404).send("ShortURL ID not found") : res.redirect(301, url.longURL);
- 
+        resp = !url ? res.status(404).send("<h3>ShortURL ID not found.</h3>") : res.redirect(301, url.longURL);
+
         return resp;
     } catch (error) {
-        resp = res.status(500).send("Error. Please try again.");
+        resp = res.status(500).send("<h3>Error. Please try again.</h3>");
 
         return resp;
     }
@@ -66,7 +66,7 @@ app.post("/url", async (req, res) => {
 
     try {
         if (!!services.validateUrl(req.body.url)) {
-            return res.status(400).send({ msg: "Invalid URL." });
+            return res.status(400).send(`<h3>Invalid URL.</h3>`);
         }
 
         const urlKey = services.generateUrlKey();
@@ -77,7 +77,7 @@ app.post("/url", async (req, res) => {
 
         return resp;
     } catch (error) {
-        resp = res.status(500).send({ msg: `The following error has occurred: ${error}` });
+        resp = res.status(500).send(`<h3>The following error has occurred: ${error}.</h3>`);
 
         return resp;
     }
@@ -87,12 +87,39 @@ app.delete("/:shortUrlId", async (req, res) => {
     let resp;
     try {
         const url = await urlDb.find(req.params.shortUrlId);
-        resp = !url ? res.status(404).send("ShortURL ID not found") : await urlDb.erase(req.params.shortUrlId);
+        resp = !url ? res.status(404).send("<h3>ShortURL ID not found.</h3>") : await urlDb.erase(req.params.shortUrlId);
 
         return resp;
     } catch (error) {
-        resp = res.status(500).send("Error. Please try again.");
+        resp = res.status(500).send("<h3>Error. Please try again.</h3>");
 
         return resp;
     }
+});
+
+app.put("/:shortUrlId", async (req, res) => {
+    let resp, longURL;
+
+    try {
+        if (req.body.longURL) {
+            longURL = req.body.longURL;
+        } else {
+            resp = await urlDb.find(req.params.shortUrlId);
+            longURL = resp.longURL;
+        }
+
+        const updateObject = {
+            longURL
+        }
+
+        const update = await urlDb.update(req.params.shortUrlId, updateObject)
+        resp = res.status(200).send(`<h3>URL updated.</h3>`);
+
+        return resp;
+    } catch (error) {
+        resp = res.status(500).send("<h3>Error. Please try again.</h3>");
+
+        return resp;
+    }
+
 });

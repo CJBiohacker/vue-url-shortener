@@ -8,9 +8,8 @@ const port = process.env.PORT;
 const host = process.env.HOST;
 const app = express();
 
-const services = require("./src/services/url.service");
-const database = require("./src/database/db-config");
-const urlDb = require("./src/database/db-url");
+const utils = require("./src/common/utils");
+const urlService = require("./src/services/url.services");
 
 const corsOptions = {
     origin: 'http://localhost:8080',
@@ -26,7 +25,7 @@ app.get("/all", async (req, res) => {
     let resp;
 
     try {
-        const urls = await urlDb.findAll();
+        const urls = await urlService.findAll();
         const formattedURls = [];
 
         for (const item of urls) {
@@ -50,7 +49,7 @@ app.get("/:shortUrlId", async (req, res) => {
     let resp;
 
     try {
-        const url = await urlDb.find(req.params.shortUrlId);
+        const url = await urlService.find(req.params.shortUrlId);
         resp = !url ? res.status(404).send("<h3>ShortURL ID not found.</h3>") : res.redirect(301, url.longURL);
 
         return resp;
@@ -65,14 +64,14 @@ app.post("/url", async (req, res) => {
     let resp;
 
     try {
-        if (!!services.validateUrl(req.body.url)) {
+        if (!!utils.validateUrl(req.body.url)) {
             return res.status(400).send(`<h3>Invalid URL.</h3>`);
         }
 
-        const urlKey = services.generateUrlKey();
+        const urlKey = utils.generateUrlKey();
         const shortUrl = `http://${host}:${port}/${urlKey}`;
 
-        await urlDb.save(req.body.url, shortUrl, urlKey);
+        await urlService.save(req.body.url, shortUrl, urlKey);
         resp = res.status(200).send({ shortUrl });
 
         return resp;
@@ -86,8 +85,8 @@ app.post("/url", async (req, res) => {
 app.delete("/:shortUrlId", async (req, res) => {
     let resp;
     try {
-        const url = await urlDb.find(req.params.shortUrlId);
-        resp = !url ? res.status(404).send("<h3>ShortURL ID not found.</h3>") : await urlDb.erase(req.params.shortUrlId);
+        const url = await urlService.find(req.params.shortUrlId);
+        resp = !url ? res.status(404).send("<h3>ShortURL ID not found.</h3>") : await urlService.erase(req.params.shortUrlId);
 
         return resp;
     } catch (error) {
@@ -104,7 +103,7 @@ app.put("/:shortUrlId", async (req, res) => {
         if (req.body.longURL) {
             longURL = req.body.longURL;
         } else {
-            resp = await urlDb.find(req.params.shortUrlId);
+            resp = await urlService.find(req.params.shortUrlId);
             longURL = resp.longURL;
         }
 
@@ -112,7 +111,7 @@ app.put("/:shortUrlId", async (req, res) => {
             longURL
         }
 
-        const update = await urlDb.update(req.params.shortUrlId, updateObject)
+        const update = await urlService.update(req.params.shortUrlId, updateObject)
         resp = res.status(200).send(`<h3>URL updated.</h3>`);
 
         return resp;

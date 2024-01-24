@@ -9,7 +9,7 @@ const host = process.env.HOST;
 const app = express();
 
 const utils = require("./src/common/utils");
-const urlService = require("./src/services/url.services");
+const urlService = require("./src/services/url.service");
 
 const corsOptions = {
     origin: 'http://localhost:8080',

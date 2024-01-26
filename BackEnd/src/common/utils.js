@@ -10,6 +10,9 @@ const validateUrl = (url = "") => {
         }
     });
 }
+
 const generateUrlKey = () => shortId.generate();
 
-module.exports = { validateUrl, generateUrlKey };
+const getMongoDbCollection = async (client) => client.db(process.env.MONGO_DB_DATABASE).collection(process.env.MONGO_DB_COLLECTION);
+
+module.exports = { validateUrl, generateUrlKey, getMongoDbCollection };

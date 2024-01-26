@@ -34,7 +34,6 @@ app.get("/all", async (req, res) => {
                 longURL: item.longURL,
             });
         }
-
         resp = res.status(200).send(formattedURls);
 
         return resp;
@@ -107,12 +106,13 @@ app.put("/:shortUrlId", async (req, res) => {
             longURL = resp.longURL;
         }
 
-        const updateObject = {
-            longURL
+        const shortUrlId = { shortUrlId : req.params.shortUrlId };
+        const update = await urlService.update(shortUrlId, longURL);
+        if (update.matchedCount === 0) {
+            resp = res.status(404).send(`<h3>URL was not found.</h3>`);
+        } else {
+            resp = res.status(200).send(`<h3>URL updated.</h3>`);
         }
-
-        const update = await urlService.update(req.params.shortUrlId, updateObject)
-        resp = res.status(200).send(`<h3>URL updated.</h3>`);
 
         return resp;
     } catch (error) {

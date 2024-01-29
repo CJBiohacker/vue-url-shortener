@@ -106,7 +106,7 @@ app.put("/:shortUrlId", async (req, res) => {
             longURL = resp.longURL;
         }
 
-        const shortUrlId = { shortUrlId : req.params.shortUrlId };
+        const shortUrlId = { shortUrlId: req.params.shortUrlId };
         const update = await urlService.update(shortUrlId, longURL);
         if (update.matchedCount === 0) {
             resp = res.status(404).send(`<h3>URL was not found.</h3>`);

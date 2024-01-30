@@ -63,3 +63,33 @@ It needs to follow the exactly format specified above, because it will be replac
 | `POST` | `/url` | `shortUrlId: String` <br> `shortId: String` <br> `longURL: String`| Request to add a new shortened url |
 | `DELETE` | `/:shortUrlId` | `shortUrlId: String` | Request to delete an existing shortened url |
 | `PUT` | `/:shortUrlId` | `shortUrlId: String` <br> `longURL: String` | Request to update an existing shortened url |
+
+
+## Directory structure
+```txt
+
++---BackEnd
+|   +---src
+|   |   +---common
+|   |       utils.js
+|   |   +---database
+|   |       db-config.js
+|   |   +---models
+|   |       url-model.js
+|   |   +---services
+|   |       url.service.js
+|   |   index.js 
+|   |   package.json
+|   |   package-lock.json
++---FrontEnd
+|   +---src
+|   |   +---components
+|   |   App.vue
+|   |   main.js
+|   |   style.css
+|   index.html
+|   package.json
+|   vite.config.js
+|   yarn.lock
+
+```

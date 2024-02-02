@@ -1,24 +1,58 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue';
+<template>
+  <v-app>
+    <Header :title="headerTitle" />
+
+    <MainSection />
+
+    <Footer :author="name" :profiles="profiles" />
+  </v-app>
+</template>
+<script>
+import Header from "./components/Header/Header.vue";
+import MainSection from "./components/MainSection/Main-Section.vue";
+import Footer from "./components/Footer/Footer.vue";
+
+export default {
+  components: {
+    Header,
+    MainSection,
+    Footer
+  },
+  data() {
+    return {
+      headerTitle: "Vue Shortener",
+      name: "CJ",
+      profiles: [
+        {
+          url: 'https://www.linkedin.com/in/carlosjunior137/',
+          icon: 'fas fa-linkedin'
+        },
+        {
+          url: 'https://github.com/CJBiohacker',
+          icon: 'fas fa-github'
+        },
+        {
+          url: 'https://www.instagram.com/cjrapscript/',
+          icon: 'fas fa-instagram'
+        },
+        {
+          url: 'https://twitter.com/CJBiohacker',
+          icon: 'fas fa-x-twitte'
+        }
+      ]
+    }
+  },
+  methods: {
+
+  }
+};
 </script>
 
-<template>
-  <div>
-    
-  </div>
-</template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style scoped></style>
+<style lang="scss">
+body {
+  font-family: 'Fira Code', monospace;
+  padding: 0;
+  margin: 0;
 }
 </style>

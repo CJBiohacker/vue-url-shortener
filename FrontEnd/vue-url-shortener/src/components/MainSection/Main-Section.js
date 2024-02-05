@@ -1,12 +1,15 @@
 export default {
-    props: {
-        title: {
-            type: String,
-            default: ""
-        }
+  props: {
+    title: {
+      type: String,
+      default: "",
     },
-    data() {
-        return {
-        }
-    }
-}
+    variant: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {};
+  },
+};

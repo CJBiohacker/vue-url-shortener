@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="d-flex align-center justify-center">
       <h1>
         {{ title }}
       </h1>
@@ -11,9 +11,6 @@
 
 <style scoped lang="scss">
 header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: #9c5dfe;
     height: 10dvh;
 

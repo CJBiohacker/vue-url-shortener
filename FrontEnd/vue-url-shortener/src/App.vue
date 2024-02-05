@@ -20,24 +20,24 @@ export default {
   },
   data() {
     return {
-      headerTitle: "Vue Shortener",
+      headerTitle: "URL Shortener",
       name: "CJ",
       profiles: [
         {
           url: 'https://www.linkedin.com/in/carlosjunior137/',
-          icon: 'fas fa-linkedin'
+          type: 'linkedin'
         },
         {
           url: 'https://github.com/CJBiohacker',
-          icon: 'fas fa-github'
+          type: 'github'
         },
         {
           url: 'https://www.instagram.com/cjrapscript/',
-          icon: 'fas fa-instagram'
+          type: 'instagram'
         },
         {
           url: 'https://twitter.com/CJBiohacker',
-          icon: 'fas fa-x-twitte'
+          type: 'twitter'
         }
       ]
     }

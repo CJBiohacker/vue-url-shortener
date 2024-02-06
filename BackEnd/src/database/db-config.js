@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require("mongodb");
 require("dotenv").config();
 
 const user = encodeURIComponent(process.env.MONGO_DB_USERNAME);
@@ -9,11 +9,11 @@ URI = URI.replace("{username}", user);
 URI = URI.replace("{password}", password);
 
 const client = new MongoClient(URI, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
 });
 
 module.exports = client;

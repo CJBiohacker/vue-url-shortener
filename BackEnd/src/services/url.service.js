@@ -22,7 +22,6 @@ const find = async (shortUrlId) => {
         await mongoDbClient.connect();
         const collection = await getMongoDbCollection(mongoDbClient);
         const result = await collection.findOne({ shortUrlId });
-        console.log("🚀 ~ find ~ result:", result)
 
         return result;
     } catch (error) {

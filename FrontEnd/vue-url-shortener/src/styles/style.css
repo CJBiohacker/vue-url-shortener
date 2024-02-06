@@ -14,7 +14,11 @@
 
 #app {
   width: 100dvw;
-  height: 100dvh;
+}
+
+#snackbar-container {
+  position: absolute;
+  bottom: 30%;
 }
 
 @media (prefers-color-scheme: light) {

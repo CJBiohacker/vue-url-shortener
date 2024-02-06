@@ -1,23 +1,48 @@
 <template>
   <v-main id="main-content">
     <v-container align="center" justify="center">
-      <v-card class="mx-auto" max-width="344" :variant="variant">
-        <v-card-item>
-          <div>
-            <div class="text-overline mb-1">
-              {{ variant }}
-            </div>
-            <div class="text-h6 mb-1">Past the URL</div>
-            <div class="text-caption">
-              Greyhound divisely hello coldly fonwderfully
-            </div>
+      <v-sheet class="mt-10" :max-width="cardMaxWidth">
+        <v-card class="mx-auto px-6 py-8" :max-width="cardMaxWidth">
+          <h2 class="mb-8">
+            {{ formTitle }}
+          </h2>
+          <v-form validate-on="submit lazy" @submit.prevent="shortenURL()">
+            <v-text-field
+              v-model="url"
+              :rules="rules"
+              label="URL"
+              placeholder="Enter a valid URL. Example: http://www.example.com"
+              clearable
+            ></v-text-field>
+            <v-btn
+              class="mt-2 submit-btn"
+              :loading="loading"
+              type="submit"
+              text="Shorten URL"
+            ></v-btn>
+          </v-form>
+        </v-card>
+      </v-sheet>
+      <v-sheet
+        v-show="showShortenedUrl"
+        class="mt-10"
+        :max-width="cardMaxWidth"
+      >
+        <v-card class="mx-auto px-6 py-8" :max-width="cardMaxWidth">
+          <div class="text-h6">
+            Here's your shortened URL<br />
+            <span class="text-subtitle-1"> {{ shortURL }} </span>
           </div>
-        </v-card-item>
-
-        <v-card-actions>
-          <v-btn> Button </v-btn>
-        </v-card-actions>
-      </v-card>
+          <v-btn
+            class="mt-2 submit-btn"
+            text="Copy URL"
+            @click="copyURL()"
+          ></v-btn>
+          <v-snackbar id="snackbar-container" v-model="snackbarStatus" multi-line="">
+            {{ snackBarMsg }}
+          </v-snackbar>
+        </v-card>
+      </v-sheet>
     </v-container>
   </v-main>
 </template>
@@ -26,6 +51,10 @@
 
 <style scoped lang="scss">
 #main-content {
-  height: 85dvh;
+  .submit-btn {
+    background-color: #d15eff;
+    color: white;
+    width: 250px;
+  }
 }
 </style>

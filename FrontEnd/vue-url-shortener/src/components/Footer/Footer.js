@@ -31,7 +31,4 @@ export default {
       if (profileType === "twitter") return mdiTwitter;
     },
   },
-  mounted() {
-    console.log(this.profiles);
-  },
 };

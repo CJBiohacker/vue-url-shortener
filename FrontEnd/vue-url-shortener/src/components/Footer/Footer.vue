@@ -1,5 +1,5 @@
 <template>
-  <v-footer border id="footer">
+  <footer id="footer">
     <v-container fluid id="footer-container">
       <v-row justify="space-between">
         <v-col class="d-flex align-center">
@@ -21,7 +21,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </v-footer>
+  </footer>
 </template>
 
 <script src="./Footer.js"></script>

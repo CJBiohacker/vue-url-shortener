@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <Header :title="headerTitle" />
-
-    <MainSection />
-
+    <MainSection :formTitle="formTitle" :cardMaxWidth="cardMaxWidth"/>
     <Footer :author="name" :profiles="profiles" />
   </v-app>
 </template>
@@ -11,6 +9,7 @@
 import Header from "./components/Header/Header.vue";
 import MainSection from "./components/MainSection/Main-Section.vue";
 import Footer from "./components/Footer/Footer.vue";
+import { useWindowSize } from "@vueuse/core";
 
 export default {
   components: {
@@ -21,7 +20,8 @@ export default {
   data() {
     return {
       headerTitle: "URL Shortener",
-      name: "CJ",
+      formTitle: "Paste or Type a URL to be Shortened",
+      name: "CJ Dev",
       profiles: [
         {
           url: 'https://www.linkedin.com/in/carlosjunior137/',
@@ -42,9 +42,12 @@ export default {
       ]
     }
   },
-  methods: {
-
-  }
+  computed: {
+      cardMaxWidth() {
+        const { width } = useWindowSize();
+        return `${width.value * 0.5}`;
+      },
+    },
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-    <header class="d-flex align-center justify-center">
+    <header class="d-flex align-center justify-center py-3 header-container">
       <h1>
         {{ title }}
       </h1>
@@ -10,9 +10,8 @@
 </script>
 
 <style scoped lang="scss">
-header {
+.header-container {
     background-color: #9c5dfe;
-    height: 10dvh;
 
     h1 {
         color: white;

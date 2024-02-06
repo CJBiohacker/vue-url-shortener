@@ -31,7 +31,7 @@
         <v-card class="mx-auto px-6 py-8" :max-width="cardMaxWidth">
           <div class="text-h6">
             Here's your shortened URL<br />
-            <span class="text-subtitle-1"> {{ shortURL }} </span>
+            <a class="text-subtitle-1" :href="shortURL" target="_blank"> {{ shortURL }}</a>
           </div>
           <v-btn
             class="mt-2 submit-btn"

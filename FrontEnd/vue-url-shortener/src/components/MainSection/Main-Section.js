@@ -1,4 +1,5 @@
 import re_weburl from "@/helpers/helpers.js";
+import urlService from "../../services/url.services";
 
 export default {
   props: {
@@ -23,7 +24,7 @@ export default {
         (input) => (re_weburl.test(input) ? "" : "This is an invalid URL."),
       ],
       showShortenedUrl: false,
-      shortURL: "http://localhost/zxcz9#1!",
+      shortURL: "",
       snackBarMsg: "",
       snackbarStatus: false,
     };
@@ -37,16 +38,16 @@ export default {
       }
       this.loading = !this.loading;
       try {
-        // const resp = await 
+        console.log("🚀 ~ shortenURL ~ this.url:", this.url)
+        const { shortUrl } = await urlService.shortenAndPostUrl({ url: this.url });
+        this.shortURL = shortUrl;
       } catch (error) {
-        
+        console.log("error =>", error);
+      } finally {
+        if (!this.showShortenedUrl)
+          this.showShortenedUrl = !this.showShortenedUrl;
+        this.loading = !this.loading;
       }
-
-      
-      if (!this.showShortenedUrl)
-        this.showShortenedUrl = !this.showShortenedUrl;
-      
-      // this.loading = !this.loading;
     },
     async copyURL() {
       try {

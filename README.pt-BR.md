@@ -73,7 +73,7 @@ Você precisará criar uma conexão de banco de dados MongoDB (tente a [document
 
 #### Exemplo:
 
-```json
+```js
     PORT=1234
     HOST=localhost
     CLIENT_URL="http://localhost:<mesmo número da porta usada no FrontEnd>:"

@@ -73,7 +73,7 @@ You will need to create a MongoDB database connection (try the [official docs](h
 
 #### Example:
 
-```json
+```js
     PORT=1234
     HOST=localhost
     CLIENT_URL="http://localhost:<same port number as the frontend app>:"

@@ -23,26 +23,34 @@
           </v-form>
         </v-card>
       </v-sheet>
-      <v-sheet
-        v-show="showShortenedUrl"
-        class="mt-10"
-        :max-width="cardMaxWidth"
-      >
-        <v-card class="mx-auto px-6 py-8" :max-width="cardMaxWidth">
-          <div class="text-h6">
-            Here's your shortened URL<br />
-            <a class="text-subtitle-1" :href="shortURL" target="_blank"> {{ shortURL }}</a>
-          </div>
-          <v-btn
-            class="mt-2 submit-btn"
-            text="Copy URL"
-            @click="copyURL()"
-          ></v-btn>
-          <v-snackbar id="snackbar-container" v-model="snackbarStatus" multi-line="">
-            {{ snackBarMsg }}
-          </v-snackbar>
-        </v-card>
-      </v-sheet>
+      <v-expand-transition>
+        <v-sheet
+          v-show="showShortenedUrl"
+          class="mt-10"
+          :max-width="cardMaxWidth"
+        >
+          <v-card class="mx-auto px-6 py-8" :max-width="cardMaxWidth">
+            <div class="text-h6">
+              Here's your shortened URL<br />
+              <a class="text-subtitle-1" :href="shortURL" target="_blank">
+                {{ shortURL }}</a
+              >
+            </div>
+            <v-btn
+              class="mt-2 submit-btn"
+              text="Copy URL"
+              @click="copyURL()"
+            ></v-btn>
+            <v-snackbar
+              id="snackbar-container"
+              v-model="snackbarStatus"
+              multi-line=""
+            >
+              {{ snackBarMsg }}
+            </v-snackbar>
+          </v-card>
+        </v-sheet>
+      </v-expand-transition>
     </v-container>
   </v-main>
 </template>

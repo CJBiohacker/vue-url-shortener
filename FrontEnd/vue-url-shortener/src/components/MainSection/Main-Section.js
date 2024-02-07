@@ -32,14 +32,15 @@ export default {
   methods: {
     async shortenURL() {
       if (!re_weburl.test(this.url)) {
-        console.log("RULES IS FALSE");
         this.loading = false;
+        this.showShortenedUrl = false;
         return;
       }
       this.loading = !this.loading;
       try {
-        console.log("🚀 ~ shortenURL ~ this.url:", this.url)
-        const { shortUrl } = await urlService.shortenAndPostUrl({ url: this.url });
+        const { shortUrl } = await urlService.shortenAndPostUrl({
+          url: this.url,
+        });
         this.shortURL = shortUrl;
       } catch (error) {
         console.log("error =>", error);

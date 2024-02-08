@@ -1,4 +1,4 @@
-const urlObjectModel = (longURL, shortURL, shortUrlId) => {
+const urlObjectModel = (longURL, shortURL, shortUrlId, createdAt, updatedAt) => {
   return {
     longURL,
     shortURL,

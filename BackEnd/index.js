@@ -1,15 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const nodeCron = require("node-cron");
+const utils = require("./src/common/utils");
+const urlService = require("./src/services/url.service");
 require("dotenv").config();
 
 const port = process.env.PORT;
 const host = process.env.HOST;
 const app = express();
-
-const utils = require("./src/common/utils");
-const urlService = require("./src/services/url.service");
 
 const corsOptions = {
   origin: `${process.env.CLIENT_URL}`,
@@ -65,7 +64,7 @@ app.post("/url", async (req, res) => {
   let resp;
 
   try {
-    if (!!utils.validateUrl(req.body.url)) {
+    if (utils.validateUrl(req.body.url)) {
       return res.status(400).send(`<h3>Invalid URL.</h3>`);
     }
 
@@ -126,3 +125,15 @@ app.put("/:shortUrlId", async (req, res) => {
     return resp;
   }
 });
+
+// Cron job scheduled at minute 0 past every 12th hour, to remove any documents created more than 24 hours ago
+nodeCron.schedule(
+  "0 */12 * * *",
+  () => {
+    console.log("Running job to remove expired documents...");
+    utils.removeExpiredDocuments();
+  },
+  {
+    timezone: "America/Sao_Paulo",
+  }
+);

@@ -1,7 +1,7 @@
 # URL Shortener Web App
 
-This project, as the name implies, is a web app to shorten any URL saved in the database.`<br>`
-It can be used to reduce the URL character size to make it easier to share the link.`<br>`
+This project, as the name implies, is a web app to shorten any URL saved in the database.<br>
+It can be used to reduce the URL character size to make it easier to share the link.<br>
 This short link and the link ID generated will be used as a reference to access the original URL.
 
 # Technologies
@@ -64,10 +64,10 @@ This short link and the link ID generated will be used as a reference to access 
 
 # How it Works
 
-This project is structured in something as close as the MVC software design pattern.`<br>`
+This project is structured in something as close as the MVC software design pattern.<br>
 With the Controller and Model parts in the path `/BackEnd`, and the View part in the `/FrontEnd` folder.
 The Controller is located in the path `/BackEnd/src/services` containing the main functions that execute a basic CRUD in the NoSQL Database.
-The routes are all set in the path `/BackEnd/index.js` which will be specified in the `<a href="#restApi" >`REST API Instructions `</a>` section.
+The routes are all set in the path `/BackEnd/index.js` which will be specified in the <a href="#restApi" >`REST API Instructions`</a> section.
 
 You will need to create a MongoDB database connection (try the [official docs](https://www.mongodb.com/docs/atlas/getting-started/)) and create a `.env` file in the directory path to `/BackEnd`. In this file you need to set these environment variables:
 
@@ -129,4 +129,4 @@ export default defineConfig({
 | `GET`(ALL) | `/all`         | `None`                                            | Request to get all shortened url's          |
 | `POST`     | `/url`         | `longURL: String`                                 | Request to add a new shortened url          |
 | `DELETE`   | `/:shortUrlId` | `shortUrlId: String`                              | Request to delete an existing shortened url |
-| `PUT`      | `/:shortUrlId` | `shortUrlId: String` `<br>` `longURL: String` | Request to update an existing shortened url |
+| `PUT`      | `/:shortUrlId` | `shortUrlId: String` <br> `longURL: String` | Request to update an existing shortened url |

@@ -129,4 +129,4 @@ export default defineConfig({
 | `GET`(ALL) | `/all`         | `Nenhum`                                          | Requisição para buscar todas urls encurtadas            |
 | `POST`     | `/url`         | `longURL: String`                                 | Requisição para adicionar uma nova url encurtada        |
 | `DELETE`   | `/:shortUrlId` | `shortUrlId: String`                              | Requisição para deletar uma url encurtada existente     |
-| `PUT`      | `/:shortUrlId` | `shortUrlId: String` `<br>` `longURL: String` | Requisição para atualizar uma url encurtada existente   |
+| `PUT`      | `/:shortUrlId` | `shortUrlId: String` <br> `longURL: String` | Requisição para atualizar uma url encurtada existente   |

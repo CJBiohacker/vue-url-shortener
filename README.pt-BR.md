@@ -64,10 +64,10 @@ Este link curto e o ID do link gerado serão usados como referência para acessa
 
 # Como o Projeto funciona
 
-Este projeto está estruturado em algo tão próximo quanto o padrão de design de software MVC.`<br>`
+Este projeto está estruturado em algo tão próximo quanto o padrão de design de software MVC.<br>
 Com as partes Controller e Model no caminho `/BackEnd`, e a parte View na pasta `/FrontEnd`.
 O Controller está localizado no caminho `/BackEnd/src/services` contendo as principais funções que executam um CRUD básico no Banco de Dados NoSQL.
-As rotas são todas definidas no caminho `/BackEnd/index.js` que será especificado na seção `<a href="#restApi" >`Instruções da API REST `</a>`.
+As rotas são todas definidas no caminho `/BackEnd/index.js` que será especificado na seção <a href="#restApi" >`Instruções da API REST`</a>.
 
 Você precisará criar uma conexão de banco de dados MongoDB (tente a [documentação oficial](https://www.mongodb.com/docs/atlas/getting-started/)) e crie um arquivo `.env` no caminho do diretório para `/BackEnd`. Neste arquivo, você precisa definir estas variáveis de ambiente:
 

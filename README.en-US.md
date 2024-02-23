@@ -4,6 +4,8 @@ This project, as the name implies, is a web app to shorten any URL saved in the 
 It can be used to reduce the URL character size to make it easier to share the link.<br>
 This short link and the link ID generated will be used as a reference to access the original URL.
 
+Application URL : [URL Shortener](https://url-shortener-4gcz.onrender.com/)
+
 # Technologies
 
 | Technology | Version |

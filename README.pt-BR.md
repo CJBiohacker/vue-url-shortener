@@ -4,6 +4,8 @@ Este projeto, como o nome indica, é uma aplicação web para encurtar qualquer 
 Ele pode ser usado para reduzir o tamanho dos caracteres do URL para facilitar o compartilhamento do link.
 Este link curto e o ID do link gerado serão usados como referência para acessar a URL original.
 
+URL da Aplicação : [Encurtador de URL](https://url-shortener-4gcz.onrender.com/)
+
 # Tecnologias
 
 | Tecnologia | Versão |

@@ -1,4 +1,3 @@
-export default Object.assign(
-    {},
-    require("./text.json")
-);
+import text from "./text.json";
+
+export default { ...text };

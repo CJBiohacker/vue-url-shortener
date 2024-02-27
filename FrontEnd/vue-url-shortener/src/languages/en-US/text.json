@@ -1,3 +1,7 @@
 {
-    "HEADER_TITLE": "URL Shortener"
+    "LANGUAGE_SELECT": "Select your language",
+    "LANGUAGE_BRAZILIAN_PT": "Portuguese (BR)",
+    "LANGUAGE_ENGLISH": "English",
+    "HEADER_TITLE": "URL Shortener",
+    "FORM_TITLE": "Paste or Type a URL to be Shortened"
 }

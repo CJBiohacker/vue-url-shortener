@@ -1,3 +1,7 @@
 {
-    "HEADER_TITLE": "Encurtador de URL"
+    "LANGUAGE_SELECT": "Selecione o idioma",
+    "LANGUAGE_BRAZILIAN_PT": "Português (BR)",
+    "LANGUAGE_ENGLISH": "Inglês",
+    "HEADER_TITLE": "Encurtador de URL",
+    "FORM_TITLE": "Cole ou Digite uma URL à ser encurtada"
 }

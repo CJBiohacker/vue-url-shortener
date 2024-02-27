@@ -19,8 +19,8 @@ export default {
   },
   data() {
     return {
-      headerTitle: "URL Shortener",
-      formTitle: "Paste or Type a URL to be Shortened",
+      headerTitle: this.$t("HEADER_TITLE"),
+      formTitle: this.$t("FORM_TITLE"),
       name: "CJ Dev",
       profiles: [
         {

@@ -2,6 +2,7 @@ import Components from "unplugin-vue-components/vite";
 import Vue from "@vitejs/plugin-vue";
 import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 import ViteFonts from "unplugin-fonts/vite";
+import svgLoader from 'vite-svg-loader';
 
 // Utilities
 import { defineConfig } from "vite";
@@ -31,6 +32,9 @@ export default defineConfig({
         ],
       },
     }),
+    svgLoader({
+      defaultImport: 'url'
+    })
   ],
   define: { "process.env": {} },
   resolve: {

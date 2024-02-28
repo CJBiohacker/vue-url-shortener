@@ -1,7 +1,15 @@
 {
     "LANGUAGE_SELECT": "Selecione o idioma",
     "LANGUAGE_BRAZILIAN_PT": "Português (BR)",
-    "LANGUAGE_ENGLISH": "Inglês",
+    "LANGUAGE_ENGLISH": "English",
     "HEADER_TITLE": "Encurtador de URL",
-    "FORM_TITLE": "Cole ou Digite uma URL à ser encurtada"
+    "FORM_TITLE": "Cole ou Digite uma URL à ser encurtada",
+    "INVALID_URL_MSG": "Esta URL é inválida",
+    "VALID_URL_MSG": "Entre com uma URL válida. Exemplo: http://www.example.com",
+    "URL_COPIED": "URL copiada para a área de transferência",
+    "ERROR_COPYING_URL": "Um erro ocorreu ao copiar",
+    "SHORTEN_URL": "Encurtar URL",
+    "URL_SHORTENED_MSG": "Aqui está sua URL encurtada",
+    "COPY_URL_MSG": "Copiar URL",
+    "MADE_BY": "Desenvolvido por"
 }

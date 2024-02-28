@@ -3,5 +3,13 @@
     "LANGUAGE_BRAZILIAN_PT": "Portuguese (BR)",
     "LANGUAGE_ENGLISH": "English",
     "HEADER_TITLE": "URL Shortener",
-    "FORM_TITLE": "Paste or Type a URL to be Shortened"
+    "FORM_TITLE": "Paste or Type a URL to be Shortened",
+    "INVALID_URL_MSG": "This is an invalid URL.",
+    "VALID_URL_MSG": "Enter a valid URL. Example: http://www.example.com",
+    "URL_COPIED": "Url copied to the clipboard",
+    "ERROR_COPYING_URL": "An error occurred while copying",
+    "SHORTEN_URL": "Shorten URL",
+    "URL_SHORTENED_MSG": "Here's your shortened URL",
+    "COPY_URL_MSG": "Copy URL",
+    "MADE_BY": "Developed by"
 }

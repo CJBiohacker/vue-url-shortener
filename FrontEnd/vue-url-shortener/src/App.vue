@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <Header :title="headerTitle" />
-    <MainSection :formTitle="formTitle" :cardMaxWidth="cardMaxWidth" />
+    <Header />
+    <MainSection :cardMaxWidth="cardMaxWidth" />
     <Footer :author="name" :profiles="profiles" />
   </v-app>
 </template>

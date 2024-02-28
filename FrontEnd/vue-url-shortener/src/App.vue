@@ -19,8 +19,6 @@ export default {
   },
   data() {
     return {
-      headerTitle: this.$t("HEADER_TITLE"),
-      formTitle: this.$t("FORM_TITLE"),
       name: "CJ Dev",
       profiles: [
         {

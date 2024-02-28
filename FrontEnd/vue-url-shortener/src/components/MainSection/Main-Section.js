@@ -3,14 +3,6 @@ import urlService from "../../services/url.services";
 
 export default {
   props: {
-    title: {
-      type: String,
-      default: "",
-    },
-    formTitle: {
-      type: String,
-      default: "",
-    },
     cardMaxWidth: {
       type: String,
       default: "",
@@ -21,7 +13,7 @@ export default {
       url: "",
       loading: false,
       rules: [
-        (input) => (re_weburl.test(input) ? "" : "This is an invalid URL."),
+        (input) => (re_weburl.test(input) ? "" : this.$t("INVALID_URL_MSG")),
       ],
       showShortenedUrl: false,
       shortURL: "",
@@ -53,10 +45,10 @@ export default {
     async copyURL() {
       try {
         await navigator.clipboard.writeText(this.shortURL);
-        this.snackBarMsg = "Url copied to the clipboard.";
+        this.snackBarMsg = this.$t("URL_COPIED");
         this.snackbarStatus = !this.snackbarStatus;
       } catch (error) {
-        this.snackBarMsg = "An error occurred while copying";
+        this.snackBarMsg = this.$t("ERROR_COPYING_URL");
         this.snackbarStatus = !this.snackbarStatus;
       }
     },

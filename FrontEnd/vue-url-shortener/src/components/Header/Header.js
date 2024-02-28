@@ -1,12 +1,7 @@
+import LanguageSelector from "../LanguageSelector/LanguageSelector"
+
 export default {
-    props: {
-        title: {
-            type: String,
-            default: ""
-        }
+    components: {
+        LanguageSelector
     },
-    data() {
-        return {
-        }
-    }
 }

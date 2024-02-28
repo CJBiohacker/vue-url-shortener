@@ -3,7 +3,7 @@
     <v-container fluid id="footer-container">
       <v-row justify="space-between">
         <v-col class="d-flex align-center">
-          <p>@{{ currentYear }} - Made by {{ author }}</p>
+          <p>@{{ currentYear }} - {{ this.$t("MADE_BY") }} {{ author }}</p>
         </v-col>
         <v-spacer></v-spacer>
         <v-col class="d-flex align-center justify-end ga-3">

@@ -4,21 +4,20 @@
       <v-sheet class="mt-10" :max-width="cardMaxWidth">
         <v-card class="mx-auto px-6 py-8" :max-width="cardMaxWidth">
           <h2 class="mb-8">
-            {{ formTitle }}
+            {{ $t("FORM_TITLE") }}
           </h2>
           <v-form validate-on="submit lazy" @submit.prevent="shortenURL()">
             <v-text-field
               v-model="url"
               :rules="rules"
               label="URL"
-              placeholder="Enter a valid URL. Example: http://www.example.com"
-              clearable
+              :placeholder="$t('VALID_URL_MSG')"
             ></v-text-field>
             <v-btn
               class="mt-2 submit-btn"
               :loading="loading"
               type="submit"
-              text="Shorten URL"
+              :text="$t('SHORTEN_URL')"
             ></v-btn>
           </v-form>
         </v-card>
@@ -31,14 +30,14 @@
         >
           <v-card class="mx-auto px-6 py-8" :max-width="cardMaxWidth">
             <div class="text-h6">
-              Here's your shortened URL<br />
+              {{ $t("URL_SHORTENED_MSG") }}<br />
               <a class="text-subtitle-1" :href="shortURL" target="_blank">
                 {{ shortURL }}</a
               >
             </div>
             <v-btn
               class="mt-2 submit-btn"
-              text="Copy URL"
+              :text="$t('COPY_URL_MSG')"
               @click="copyURL()"
             ></v-btn>
             <v-snackbar

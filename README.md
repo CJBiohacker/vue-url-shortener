@@ -1,4 +1,4 @@
-# Selecione seu idioma / Select your language / Selecciona tu idioma
+# Selecione seu idioma / Select your language
 
 ### English
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.en-US.md)
